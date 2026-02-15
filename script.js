@@ -188,39 +188,70 @@ const projectsData = [
     }
 ];
 
-// --- LOGIKA KARUZELI I MODALA ---
-const track = document.querySelector('.carousel-track');
+const projectsData = [
+    {
+        id: 1,
+        category: "E-COMMERCE",
+        title: "Analiza Sprzedaży",
+        tech: ["Python", "Pandas", "Matplotlib"],
+        fullDesc: "Szczegółowa analiza danych sprzedażowych z 12 miesięcy. Celem było zidentyfikowanie produktów o niskiej marży oraz sezonowych spadków przychodów.",
+        insight: "Wykryto, że 20% asortymentu generuje stratę operacyjną w Q3. Rekomendacja: wyprzedaż magazynowa w sierpniu.",
+        images: [
+            "https://via.placeholder.com/600x400?text=Wykres+Sezonowości",
+            "https://via.placeholder.com/600x400?text=Analiza+Koszyka"
+        ],
+        repoLink: "https://github.com/Dawid-switaj/project1",
+        liveLink: "#"
+    },
+    {
+        id: 2,
+        category: "SQL / LOGISTICS",
+        title: "Dashboard Kurierski",
+        tech: ["SQL", "PostgreSQL", "Tableau"],
+        fullDesc: "Projekt obejmował normalizację bazy danych (3NF) oraz stworzenie widoków SQL zasilających dashboard w Tableau.",
+        insight: "Zidentyfikowano wąskie gardło w procesie sortowania, co opóźnia wyjazdy kurierów średnio o 45 minut.",
+        images: [
+            "https://via.placeholder.com/600x400?text=Dashboard+Tableau",
+            "https://via.placeholder.com/600x400?text=Model+Danych+ERD"
+        ],
+        repoLink: "https://github.com/Dawid-switaj/project2",
+        liveLink: "#"
+    },
+    {
+        id: 3,
+        category: "FINANCE",
+        title: "Model Ryzyka",
+        tech: ["Python", "ML", "Excel"],
+        fullDesc: "Budowa modelu klasyfikacyjnego oceniającego zdolność kredytową klientów na podstawie historii transakcji.",
+        insight: "Najważniejszym czynnikiem predykcyjnym okazał się wskaźnik DTI (Debt-to-Income), a nie wysokość zarobków.",
+        images: [
+            "https://via.placeholder.com/600x400?text=Macierz+Pomyłek",
+            "https://via.placeholder.com/600x400?text=Wykres+ROC"
+        ],
+        repoLink: "https://github.com/Dawid-switaj/project3",
+        liveLink: "#"
+    },
+    {
+        id: 4,
+        category: "WEB SCRAPING",
+        title: "Monitor Cen",
+        tech: ["Python", "Selenium", "BS4"],
+        fullDesc: "Automat sprawdzający ceny konkurencji każdego ranka i wysyłający alerty mailowe w przypadku dużych różnic.",
+        insight: "Narzędzie pozwoliło na szybszą reakcję na promocje konkurencji, zwiększając sprzedaż o 5%.",
+        images: [
+            "https://via.placeholder.com/600x400?text=Raport+Mailowy",
+            "https://via.placeholder.com/600x400?text=Kod+Scrapera"
+        ],
+        repoLink: "https://github.com/Dawid-switaj/project4",
+        liveLink: "#"
+    }
+];
+
+// --- OBSŁUGA MODALA ---
 const modal = document.getElementById('project-modal');
 const closeModalBtn = document.querySelector('.close-modal');
 
-// 1. Generowanie Kart Projektów
-function renderProjects() {
-    track.innerHTML = '';
-    projectsData.forEach(proj => {
-        const li = document.createElement('li');
-        li.classList.add('carousel-slide');
-        li.innerHTML = `
-            <article class="project-card" onclick="openModal(${proj.id})">
-                <div class="card-header">
-                    <span class="mono-tag">${proj.category}</span>
-                </div>
-                <div class="card-body">
-                    <h3>${proj.title}</h3>
-                    <p>${proj.shortDesc}</p>
-                    <ul class="tech-stack">
-                        ${proj.tech.map(t => `<li>${t}</li>`).join('')}
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <span class="btn-link">Zobacz Raport <i class="fas fa-plus"></i></span>
-                </div>
-            </article>
-        `;
-        track.appendChild(li);
-    });
-}
-
-// 2. Otwieranie Modala z danymi
+// Funkcja otwierająca modal (wywoływana z HTML onclick="openModal(id)")
 window.openModal = (id) => {
     const proj = projectsData.find(p => p.id === id);
     if (!proj) return;
@@ -234,22 +265,20 @@ window.openModal = (id) => {
     document.getElementById('m-link-code').href = proj.repoLink;
     document.getElementById('m-link-live').href = proj.liveLink;
 
-    // Galeria zdjęć
+    // Obrazki
     const gallery = document.getElementById('m-gallery');
     gallery.innerHTML = proj.images.map(img => `<img src="${img}" class="modal-img" alt="Wizualizacja">`).join('');
 
-    // Pokaż modal
+    // Pokaż
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Zablokuj scrollowanie strony pod spodem
+    document.body.style.overflow = 'hidden';
 };
 
-// 3. Zamykanie Modala
+// Zamykanie
 closeModalBtn.addEventListener('click', () => {
     modal.classList.remove('active');
     document.body.style.overflow = 'auto';
 });
-
-// Zamknij po kliknięciu w tło
 modal.addEventListener('click', (e) => {
     if (e.target === modal) {
         modal.classList.remove('active');
@@ -257,36 +286,40 @@ modal.addEventListener('click', (e) => {
     }
 });
 
-// 4. Obsługa Przewijania Karuzeli
+// --- PRZEWIJANIE KARUZELI ---
+const track = document.querySelector('.carousel-track');
 const prevBtn = document.querySelector('.prev-btn');
 const nextBtn = document.querySelector('.next-btn');
-let scrollAmount = 0;
-const cardWidth = 320; // szerokość karty + gap (w przybliżeniu)
+
+// Przesuwamy o szerokość karty + odstęp (320px + 32px gap = ok. 352px)
+const moveAmount = 352; 
 
 nextBtn.addEventListener('click', () => {
-    track.parentElement.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    track.parentElement.scrollBy({ left: moveAmount, behavior: 'smooth' });
 });
 
 prevBtn.addEventListener('click', () => {
-    track.parentElement.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    track.parentElement.scrollBy({ left: -moveAmount, behavior: 'smooth' });
 });
 
-// Automatyczne przewijanie (Autoplay)
-function autoScroll() {
+// Opcjonalnie: Automatyczne przewijanie co 5 sekund
+let autoScroll = setInterval(() => {
     const container = track.parentElement;
-    // Jeśli dojechaliśmy do końca, wróć na początek
     if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
         container.scrollTo({ left: 0, behavior: 'smooth' });
     } else {
-        container.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        container.scrollBy({ left: moveAmount, behavior: 'smooth' });
     }
-}
+}, 5000);
 
-// Uruchomienie
-renderProjects();
-let autoScrollInterval = setInterval(autoScroll, 4000); // Przewijaj co 4 sekundy
-
-// Zatrzymaj autoscroll jak użytkownik najedzie myszką
-const carouselWrapper = document.querySelector('.carousel-wrapper');
-carouselWrapper.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
-carouselWrapper.addEventListener('mouseleave', () => autoScrollInterval = setInterval(autoScroll, 4000));
+// Zatrzymaj jak myszka jest nad karuzelą
+const wrapper = document.querySelector('.carousel-wrapper');
+wrapper.addEventListener('mouseenter', () => clearInterval(autoScroll));
+wrapper.addEventListener('mouseleave', () => autoScroll = setInterval(() => {
+    const container = track.parentElement;
+    if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+        container.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+        container.scrollBy({ left: moveAmount, behavior: 'smooth' });
+    }
+}, 5000));
