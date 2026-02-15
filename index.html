@@ -128,7 +128,7 @@
 <section id="projects" class="section-border">
             <div class="section-intro">
                 <h2 class="section-header" data-i18n="section_projects">03 // PROJEKTY</h2>
-                <p class="mono-small" style="margin-top: 1rem;">Kliknij w projekt, aby zobaczyć pełny raport i wizualizacje.</p>
+                <p class="mono-small" style="margin-top: 1rem;">Kliknij w projekt, aby zobaczyć szczegóły (raport).</p>
             </div>
             
             <div class="carousel-wrapper">
@@ -136,7 +136,80 @@
                 
                 <div class="carousel-track-container">
                     <ul class="carousel-track">
-                        </ul>
+                        
+                        <li class="carousel-slide">
+                            <article class="project-card" onclick="openModal(1)">
+                                <div class="card-header">
+                                    <span class="mono-tag">E-COMMERCE</span>
+                                </div>
+                                <div class="card-body">
+                                    <h3>Analiza Sprzedaży</h3>
+                                    <p>Analiza sezonowości i trendów sprzedażowych w Pythonie.</p>
+                                    <ul class="tech-stack">
+                                        <li>Python</li><li>Pandas</li><li>Matplotlib</li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="btn-link">Zobacz Raport <i class="fas fa-plus"></i></span>
+                                </div>
+                            </article>
+                        </li>
+
+                        <li class="carousel-slide">
+                            <article class="project-card" onclick="openModal(2)">
+                                <div class="card-header">
+                                    <span class="mono-tag">SQL / LOGISTICS</span>
+                                </div>
+                                <div class="card-body">
+                                    <h3>Dashboard Kurierski</h3>
+                                    <p>Optymalizacja tras i KPI kurierów w Tableau.</p>
+                                    <ul class="tech-stack">
+                                        <li>SQL</li><li>Tableau</li><li>PostgreSQL</li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="btn-link">Zobacz Raport <i class="fas fa-plus"></i></span>
+                                </div>
+                            </article>
+                        </li>
+
+                        <li class="carousel-slide">
+                            <article class="project-card" onclick="openModal(3)">
+                                <div class="card-header">
+                                    <span class="mono-tag">FINANCE</span>
+                                </div>
+                                <div class="card-body">
+                                    <h3>Model Ryzyka</h3>
+                                    <p>Przewidywanie zdolności kredytowej z użyciem ML.</p>
+                                    <ul class="tech-stack">
+                                        <li>Python</li><li>Scikit-Learn</li><li>Excel</li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="btn-link">Zobacz Raport <i class="fas fa-plus"></i></span>
+                                </div>
+                            </article>
+                        </li>
+
+                        <li class="carousel-slide">
+                            <article class="project-card" onclick="openModal(4)">
+                                <div class="card-header">
+                                    <span class="mono-tag">WEB SCRAPING</span>
+                                </div>
+                                <div class="card-body">
+                                    <h3>Monitor Cen</h3>
+                                    <p>Automat pobierający ceny z 5 sklepów codziennie.</p>
+                                    <ul class="tech-stack">
+                                        <li>Python</li><li>Selenium</li><li>BS4</li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="btn-link">Zobacz Raport <i class="fas fa-plus"></i></span>
+                                </div>
+                            </article>
+                        </li>
+
+                    </ul>
                 </div>
 
                 <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
@@ -146,35 +219,29 @@
         <div class="modal-overlay" id="project-modal">
             <div class="modal-content">
                 <button class="close-modal"><i class="fas fa-times"></i></button>
-                
                 <div class="modal-header">
                     <span class="mono-tag" id="m-category">KATEGORIA</span>
                     <h2 id="m-title">Tytuł Projektu</h2>
-                    <div class="tech-stack" id="m-stack">
-                        </div>
+                    <div class="tech-stack" id="m-stack"></div>
                 </div>
-
                 <div class="modal-body">
                     <div class="report-section">
                         <h3><i class="fas fa-bullseye"></i> Cel biznesowy</h3>
                         <p id="m-desc">Opis problemu...</p>
                     </div>
-
                     <div class="report-section">
                         <h3><i class="fas fa-chart-bar"></i> Wizualizacje & Wnioski</h3>
-                        <div class="modal-gallery" id="m-gallery">
-                            </div>
+                        <div class="modal-gallery" id="m-gallery"></div>
                         <div class="key-insight-box">
                             <h4>Kluczowy wniosek:</h4>
                             <p id="m-insight">Wniosek...</p>
                         </div>
                     </div>
-
                     <div class="report-section">
                         <h3><i class="fas fa-code"></i> Rozwiązanie</h3>
                         <div class="modal-footer">
                             <a href="#" target="_blank" id="m-link-code" class="btn-brutal">GitHub Repo</a>
-                            <a href="#" target="_blank" id="m-link-live" class="btn-brutal">Live Demo / Dashboard</a>
+                            <a href="#" target="_blank" id="m-link-live" class="btn-brutal">Live Demo</a>
                         </div>
                     </div>
                 </div>
@@ -206,5 +273,6 @@
 </body>
 
 </html>
+
 
 
