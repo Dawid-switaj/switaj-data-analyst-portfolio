@@ -61,7 +61,7 @@ const translations = {
 };
 
 // --- ZMIENNE GLOBALNE ---
-let currentLang = 'pl'; // Domyślny język
+let currentLang = 'pl';
 const langToggleBtn = document.getElementById('lang-toggle');
 const themeToggleBtn = document.getElementById('theme-toggle');
 const body = document.body;
@@ -71,9 +71,8 @@ const body = document.body;
 // 1. Zmiana Języka
 const toggleLanguage = () => {
     currentLang = currentLang === 'pl' ? 'en' : 'pl';
-    langToggleBtn.textContent = currentLang === 'pl' ? 'EN' : 'PL'; // Zmień tekst przycisku na przeciwny
+    langToggleBtn.textContent = currentLang === 'pl' ? 'EN' : 'PL';
     
-    // Pobierz wszystkie elementy z atrybutem data-i18n
     const elements = document.querySelectorAll('[data-i18n]');
     
     elements.forEach(el => {
@@ -89,7 +88,6 @@ const toggleTheme = () => {
     body.classList.toggle('dark-theme');
     const isDark = body.classList.contains('dark-theme');
     
-    // Zmiana ikony
     const icon = themeToggleBtn.querySelector('i');
     if (isDark) {
         icon.classList.remove('fa-moon');
@@ -121,73 +119,9 @@ const yearUpdate = () => {
 langToggleBtn.addEventListener('click', toggleLanguage);
 themeToggleBtn.addEventListener('click', toggleTheme);
 navSlide();
-
 yearUpdate();
 
-// --- DANE PROJEKTÓW (TWOJA BAZA) ---
-const projectsData = [
-    {
-        id: 1,
-        category: "E-COMMERCE",
-        title: "Analiza Sprzedaży",
-        shortDesc: "Analiza sezonowości i trendów sprzedażowych w Pythonie.",
-        tech: ["Python", "Pandas", "Matplotlib"],
-        fullDesc: "Celem projektu było zbadanie rocznych danych sprzedażowych sklepu online, aby zidentyfikować okresy o najniższym przychodzie i zaproponować działania marketingowe.",
-        insight: "Wykryto 30% spadek sprzedaży w lutym i listopadzie. Rekomendacja: Wprowadzenie kampanii 'Early Bird' w tych miesiącach zwiększyłoby retencję klientów.",
-        images: [
-            "https://via.placeholder.com/600x400?text=Wykres+Sprzedazy",
-            "https://via.placeholder.com/600x400?text=Analiza+Koszyka"
-        ],
-        repoLink: "https://github.com/TwojLogin/projekt1",
-        liveLink: "#"
-    },
-    {
-        id: 2,
-        category: "SQL / LOGISTICS",
-        title: "Dashboard Kurierski",
-        shortDesc: "Optymalizacja tras i KPI kurierów w Tableau.",
-        tech: ["SQL", "PostgreSQL", "Tableau"],
-        fullDesc: "Stworzenie relacyjnej bazy danych dla firmy kurierskiej oraz dashboardu menedżerskiego do śledzenia wydajności kurierów w czasie rzeczywistym.",
-        insight: "Kurierzy w regionie 'Północ' mają średnio o 15% dłuższy czas dostawy z powodu złego planowania tras. Dashboard pozwolił zidentyfikować wąskie gardła.",
-        images: [
-            "https://via.placeholder.com/600x400?text=Dashboard+Tableau",
-            "https://via.placeholder.com/600x400?text=Schemat+Bazy+SQL"
-        ],
-        repoLink: "https://github.com/TwojLogin/projekt2",
-        liveLink: "#"
-    },
-    {
-        id: 3,
-        category: "FINANCE",
-        title: "Model Ryzyka Kredytowego",
-        shortDesc: "Przewidywanie zdolności kredytowej z użyciem ML.",
-        tech: ["Python", "Scikit-Learn", "Excel"],
-        fullDesc: "Budowa modelu uczenia maszynowego (Logistic Regression), który ocenia ryzyko niespłacenia kredytu na podstawie historii finansowej klienta.",
-        insight: "Model osiągnął skuteczność 85%. Najważniejszym czynnikiem ryzyka okazał się nie dochód, a stosunek zadłużenia do dochodu (DTI).",
-        images: [
-            "https://via.placeholder.com/600x400?text=Macierz+Pomyłek",
-            "https://via.placeholder.com/600x400?text=Wykres+ROC"
-        ],
-        repoLink: "https://github.com/TwojLogin/projekt3",
-        liveLink: "#"
-    },
-    {
-        id: 4,
-        category: "WEB SCRAPING",
-        title: "Monitor Cen Konkurencji",
-        shortDesc: "Automat pobierający ceny z 5 sklepów codziennie.",
-        tech: ["Python", "Selenium", "BeautifulSoup"],
-        fullDesc: "Skrypt automatyzujący proces zbierania danych o cenach produktów konkurencji. Raport jest wysyłany automatycznie na maila w formacie Excel.",
-        insight: "Zautomatyzowanie tego procesu oszczędza 10 godzin pracy manualnej tygodniowo dla działu zakupów.",
-        images: [
-            "https://via.placeholder.com/600x400?text=Skrypt+w+akcji",
-            "https://via.placeholder.com/600x400?text=Raport+Excel"
-        ],
-        repoLink: "https://github.com/TwojLogin/projekt4",
-        liveLink: "#"
-    }
-];
-
+// --- DANE PROJEKTÓW DO MODALA ---
 const projectsData = [
     {
         id: 1,
@@ -251,12 +185,11 @@ const projectsData = [
 const modal = document.getElementById('project-modal');
 const closeModalBtn = document.querySelector('.close-modal');
 
-// Funkcja otwierająca modal (wywoływana z HTML onclick="openModal(id)")
+// Funkcja otwierająca modal
 window.openModal = (id) => {
     const proj = projectsData.find(p => p.id === id);
     if (!proj) return;
 
-    // Wypełnij dane
     document.getElementById('m-category').textContent = proj.category;
     document.getElementById('m-title').textContent = proj.title;
     document.getElementById('m-stack').innerHTML = proj.tech.map(t => `<span class="mono-tag">${t}</span>`).join('');
@@ -265,20 +198,18 @@ window.openModal = (id) => {
     document.getElementById('m-link-code').href = proj.repoLink;
     document.getElementById('m-link-live').href = proj.liveLink;
 
-    // Obrazki
     const gallery = document.getElementById('m-gallery');
     gallery.innerHTML = proj.images.map(img => `<img src="${img}" class="modal-img" alt="Wizualizacja">`).join('');
 
-    // Pokaż
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 };
 
-// Zamykanie
 closeModalBtn.addEventListener('click', () => {
     modal.classList.remove('active');
     document.body.style.overflow = 'auto';
 });
+
 modal.addEventListener('click', (e) => {
     if (e.target === modal) {
         modal.classList.remove('active');
@@ -291,7 +222,7 @@ const track = document.querySelector('.carousel-track');
 const prevBtn = document.querySelector('.prev-btn');
 const nextBtn = document.querySelector('.next-btn');
 
-// Przesuwamy o szerokość karty + odstęp (320px + 32px gap = ok. 352px)
+// Karta 320px + gap 32px (2rem) = 352px przesunięcia
 const moveAmount = 352; 
 
 nextBtn.addEventListener('click', () => {
@@ -302,7 +233,6 @@ prevBtn.addEventListener('click', () => {
     track.parentElement.scrollBy({ left: -moveAmount, behavior: 'smooth' });
 });
 
-// Opcjonalnie: Automatyczne przewijanie co 5 sekund
 let autoScroll = setInterval(() => {
     const container = track.parentElement;
     if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
@@ -312,7 +242,6 @@ let autoScroll = setInterval(() => {
     }
 }, 5000);
 
-// Zatrzymaj jak myszka jest nad karuzelą
 const wrapper = document.querySelector('.carousel-wrapper');
 wrapper.addEventListener('mouseenter', () => clearInterval(autoScroll));
 wrapper.addEventListener('mouseleave', () => autoScroll = setInterval(() => {
