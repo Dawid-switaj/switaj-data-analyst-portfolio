@@ -125,45 +125,61 @@
             </div>
         </section>
 
-        <section id="projects" class="section-border">
+<section id="projects" class="section-border">
             <div class="section-intro">
                 <h2 class="section-header" data-i18n="section_projects">03 // PROJEKTY</h2>
+                <p class="mono-small" style="margin-top: 1rem;">Kliknij w projekt, aby zobaczyć pełny raport i wizualizacje.</p>
             </div>
             
-            <div class="projects-grid">
-                <article class="project-card">
-                    <div class="card-header">
-                        <span class="mono-tag">E-COMMERCE</span>
-                    </div>
-                    <div class="card-body">
-                        <h3 data-i18n="proj_1_title">Analiza Sprzedaży</h3>
-                        <p data-i18n="proj_1_desc">Analiza danych sprzedażowych sklepu internetowego. Wykrycie sezonowości.</p>
-                        <ul class="tech-stack">
-                            <li>Python</li><li>Pandas</li>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                
+                <div class="carousel-track-container">
+                    <ul class="carousel-track">
                         </ul>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn-link">Code <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
+                </div>
 
-                <article class="project-card">
-                    <div class="card-header">
-                        <span class="mono-tag">SQL / VI</span>
-                    </div>
-                    <div class="card-body">
-                        <h3 data-i18n="proj_2_title">Dashboard Kurierski</h3>
-                        <p data-i18n="proj_2_desc">Projekt bazy danych i dashboard w Tableau dla firmy logistycznej.</p>
-                        <ul class="tech-stack">
-                            <li>SQL</li><li>Tableau</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn-link">Dashboard <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
+                <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
             </div>
         </section>
+
+        <div class="modal-overlay" id="project-modal">
+            <div class="modal-content">
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+                
+                <div class="modal-header">
+                    <span class="mono-tag" id="m-category">KATEGORIA</span>
+                    <h2 id="m-title">Tytuł Projektu</h2>
+                    <div class="tech-stack" id="m-stack">
+                        </div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="report-section">
+                        <h3><i class="fas fa-bullseye"></i> Cel biznesowy</h3>
+                        <p id="m-desc">Opis problemu...</p>
+                    </div>
+
+                    <div class="report-section">
+                        <h3><i class="fas fa-chart-bar"></i> Wizualizacje & Wnioski</h3>
+                        <div class="modal-gallery" id="m-gallery">
+                            </div>
+                        <div class="key-insight-box">
+                            <h4>Kluczowy wniosek:</h4>
+                            <p id="m-insight">Wniosek...</p>
+                        </div>
+                    </div>
+
+                    <div class="report-section">
+                        <h3><i class="fas fa-code"></i> Rozwiązanie</h3>
+                        <div class="modal-footer">
+                            <a href="#" target="_blank" id="m-link-code" class="btn-brutal">GitHub Repo</a>
+                            <a href="#" target="_blank" id="m-link-live" class="btn-brutal">Live Demo / Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 <section id="contact" class="section-border bg-inverse">
             <div class="contact-container">
@@ -190,4 +206,5 @@
 </body>
 
 </html>
+
 
