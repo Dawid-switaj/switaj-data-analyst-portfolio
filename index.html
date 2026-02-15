@@ -8,12 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="light-theme"> 
+
     <header>
         <nav class="navbar">
             <div class="logo">świtajDATA.<span class="blue-text">PORTFOLIO</span></div>
@@ -22,9 +22,7 @@
                 <button id="theme-toggle" class="control-btn" aria-label="Toggle Dark Mode">
                     <i class="fas fa-moon"></i>
                 </button>
-                <button id="lang-toggle" class="control-btn lang-btn">
-                    EN
-                </button>
+                <button id="lang-toggle" class="control-btn lang-btn">EN</button>
             </div>
 
             <ul class="nav-links">
@@ -35,9 +33,7 @@
             </ul>
 
             <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
+                <div class="line1"></div><div class="line2"></div><div class="line3"></div>
             </div>
         </nav>
     </header>
@@ -70,16 +66,14 @@
 
         <div class="ticker-wrap">
             <div class="ticker">
-                <div class="ticker-item">DAX • SQL • PYTHON • POWERQUERY • TABLEAU • POWER BI • EXCEL • DATA MODELING • DATA CLEANING </div>
-                <div class="ticker-item">DAX • SQL • PYTHON • POWERQUERY • TABLEAU • POWER BI • EXCEL • DATA MODELING • DATA CLEANING </div>
+                <div class="ticker-item">DAX • SQL • PYTHON • POWERQUERY • TABLEAU • POWER BI • EXCEL • DATA MODELING • DATA CLEANING •</div>
+                <div class="ticker-item">DAX • SQL • PYTHON • POWERQUERY • TABLEAU • POWER BI • EXCEL • DATA MODELING • DATA CLEANING •</div>
             </div>
         </div>
 
         <section id="about" class="section-border">
             <div class="container-grid">
-                <div class="col-left">
-                    <h2 class="section-header" data-i18n="section_about">01 // O MNIE</h2>
-                </div>
+                <div class="col-left"><h2 class="section-header" data-i18n="section_about">01 // O MNIE</h2></div>
                 <div class="col-right">
                     <p class="big-text" data-i18n="about_text">
                         Jestem analitykiem, który nie boi się trudnych danych. Po latach pracy w turystyce i zarządzaniu informacją, przeniosłem swoją pasję do rozwiązywania problemów do świata kodu i analizy finansowej.
@@ -90,9 +84,7 @@
 
         <section id="education" class="section-border">
             <div class="container-grid">
-                <div class="col-left">
-                    <h2 class="section-header" data-i18n="section_edu">02 // EDUKACJA</h2>
-                </div>
+                <div class="col-left"><h2 class="section-header" data-i18n="section_edu">02 // EDUKACJA</h2></div>
                 <div class="col-right">
                     <div class="edu-list">
                         <div class="edu-item">
@@ -103,7 +95,6 @@
                                 <p class="edu-desc mono-small" data-i18n="edu_1_desc">Studia podyplomowe. Analiza sprawozdań finansowych, ocena ryzyka, modelowanie finansowe.</p>
                             </div>
                         </div>
-
                         <div class="edu-item">
                             <div class="edu-year">2023 - 2025</div>
                             <div class="edu-content">
@@ -112,7 +103,6 @@
                                 <p class="edu-desc mono-small" data-i18n="edu_2_desc">Studia magisterskie. Architektura informacji, bazy danych, zarządzanie wiedzą w organizacji.</p>
                             </div>
                         </div>
-
                         <div class="edu-item">
                             <div class="edu-year">2020 - 2023</div>
                             <div class="edu-content">
@@ -129,125 +119,62 @@
         <section id="projects" class="section-border">
             <div class="section-intro">
                 <h2 class="section-header" data-i18n="section_projects">03 // PROJEKTY</h2>
-                <p class="mono-small" style="margin-top: 1rem;">Kliknij w projekt, aby zobaczyć szczegóły (raport).</p>
+                <p class="mono-small" style="margin-top: 1rem;">Kliknij w projekt, aby zobaczyć szczegóły.</p>
             </div>
             
             <div class="carousel-wrapper">
                 <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
-                
                 <div class="carousel-track-container">
                     <ul class="carousel-track">
-                        
                         <li class="carousel-slide">
                             <article class="project-card" onclick="openModal(1)">
-                                <div class="card-header">
-                                    <span class="mono-tag">E-COMMERCE</span>
-                                </div>
+                                <div class="card-header"><span class="mono-tag">E-COMMERCE</span></div>
                                 <div class="card-body">
                                     <h3>Analiza Sprzedaży</h3>
-                                    <p>Analiza sezonowości i trendów sprzedażowych w Pythonie.</p>
-                                    <ul class="tech-stack">
-                                        <li>Python</li><li>Pandas</li><li>Matplotlib</li>
-                                    </ul>
+                                    <p>Analiza sezonowości i trendów sprzedażowych.</p>
+                                    <ul class="tech-stack"><li>Python</li><li>Pandas</li></ul>
                                 </div>
-                                <div class="card-footer">
-                                    <span class="btn-link">Zobacz Raport <i class="fas fa-plus"></i></span>
-                                </div>
+                                <div class="card-footer"><span class="btn-link">Raport <i class="fas fa-plus"></i></span></div>
                             </article>
                         </li>
-
                         <li class="carousel-slide">
                             <article class="project-card" onclick="openModal(2)">
-                                <div class="card-header">
-                                    <span class="mono-tag">SQL / LOGISTICS</span>
-                                </div>
+                                <div class="card-header"><span class="mono-tag">SQL</span></div>
                                 <div class="card-body">
                                     <h3>Dashboard Kurierski</h3>
-                                    <p>Optymalizacja tras i KPI kurierów w Tableau.</p>
-                                    <ul class="tech-stack">
-                                        <li>SQL</li><li>Tableau</li><li>PostgreSQL</li>
-                                    </ul>
+                                    <p>Optymalizacja tras i KPI kurierów.</p>
+                                    <ul class="tech-stack"><li>SQL</li><li>Tableau</li></ul>
                                 </div>
-                                <div class="card-footer">
-                                    <span class="btn-link">Zobacz Raport <i class="fas fa-plus"></i></span>
-                                </div>
+                                <div class="card-footer"><span class="btn-link">Raport <i class="fas fa-plus"></i></span></div>
                             </article>
                         </li>
-
                         <li class="carousel-slide">
                             <article class="project-card" onclick="openModal(3)">
-                                <div class="card-header">
-                                    <span class="mono-tag">FINANCE</span>
-                                </div>
+                                <div class="card-header"><span class="mono-tag">FINANCE</span></div>
                                 <div class="card-body">
                                     <h3>Model Ryzyka</h3>
-                                    <p>Przewidywanie zdolności kredytowej z użyciem ML.</p>
-                                    <ul class="tech-stack">
-                                        <li>Python</li><li>Scikit-Learn</li><li>Excel</li>
-                                    </ul>
+                                    <p>Ocena zdolności kredytowej (ML).</p>
+                                    <ul class="tech-stack"><li>Python</li><li>Scikit-Learn</li></ul>
                                 </div>
-                                <div class="card-footer">
-                                    <span class="btn-link">Zobacz Raport <i class="fas fa-plus"></i></span>
-                                </div>
+                                <div class="card-footer"><span class="btn-link">Raport <i class="fas fa-plus"></i></span></div>
                             </article>
                         </li>
-
                         <li class="carousel-slide">
                             <article class="project-card" onclick="openModal(4)">
-                                <div class="card-header">
-                                    <span class="mono-tag">WEB SCRAPING</span>
-                                </div>
+                                <div class="card-header"><span class="mono-tag">SCRAPING</span></div>
                                 <div class="card-body">
                                     <h3>Monitor Cen</h3>
-                                    <p>Automat pobierający ceny z 5 sklepów codziennie.</p>
-                                    <ul class="tech-stack">
-                                        <li>Python</li><li>Selenium</li><li>BS4</li>
-                                    </ul>
+                                    <p>Automat pobierający ceny z 5 sklepów.</p>
+                                    <ul class="tech-stack"><li>Python</li><li>Selenium</li></ul>
                                 </div>
-                                <div class="card-footer">
-                                    <span class="btn-link">Zobacz Raport <i class="fas fa-plus"></i></span>
-                                </div>
+                                <div class="card-footer"><span class="btn-link">Raport <i class="fas fa-plus"></i></span></div>
                             </article>
                         </li>
-
                     </ul>
                 </div>
-
                 <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
             </div>
         </section>
-
-        <div class="modal-overlay" id="project-modal">
-            <div class="modal-content">
-                <button class="close-modal"><i class="fas fa-times"></i></button>
-                <div class="modal-header">
-                    <span class="mono-tag" id="m-category">KATEGORIA</span>
-                    <h2 id="m-title">Tytuł Projektu</h2>
-                    <div class="tech-stack" id="m-stack"></div>
-                </div>
-                <div class="modal-body">
-                    <div class="report-section">
-                        <h3><i class="fas fa-bullseye"></i> Cel biznesowy</h3>
-                        <p id="m-desc">Opis problemu...</p>
-                    </div>
-                    <div class="report-section">
-                        <h3><i class="fas fa-chart-bar"></i> Wizualizacje & Wnioski</h3>
-                        <div class="modal-gallery" id="m-gallery"></div>
-                        <div class="key-insight-box">
-                            <h4>Kluczowy wniosek:</h4>
-                            <p id="m-insight">Wniosek...</p>
-                        </div>
-                    </div>
-                    <div class="report-section">
-                        <h3><i class="fas fa-code"></i> Rozwiązanie</h3>
-                        <div class="modal-footer">
-                            <a href="#" target="_blank" id="m-link-code" class="btn-brutal">GitHub Repo</a>
-                            <a href="#" target="_blank" id="m-link-live" class="btn-brutal">Live Demo</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <section id="contact" class="section-border bg-inverse">
             <div class="contact-container">
@@ -260,6 +187,38 @@
             </div>
         </section>
     </main>
+
+    <div class="modal-overlay" id="project-modal">
+        <div class="modal-content">
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <span class="mono-tag" id="m-category">KAT</span>
+                <h2 id="m-title">Tytuł</h2>
+                <div class="tech-stack" id="m-stack"></div>
+            </div>
+            <div class="modal-body">
+                <div class="report-section">
+                    <h3><i class="fas fa-bullseye"></i> Cel biznesowy</h3>
+                    <p id="m-desc">...</p>
+                </div>
+                <div class="report-section">
+                    <h3><i class="fas fa-chart-bar"></i> Wizualizacje & Wnioski</h3>
+                    <div class="modal-gallery" id="m-gallery"></div>
+                    <div class="key-insight-box">
+                        <h4>Kluczowy wniosek:</h4>
+                        <p id="m-insight">...</p>
+                    </div>
+                </div>
+                <div class="report-section">
+                    <h3><i class="fas fa-code"></i> Rozwiązanie</h3>
+                    <div class="modal-footer">
+                        <a href="#" target="_blank" id="m-link-code" class="btn-brutal">GitHub Repo</a>
+                        <a href="#" target="_blank" id="m-link-live" class="btn-brutal">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-content">
